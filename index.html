@@ -1,0 +1,92 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Bastionar la Seguridad de la BIOS/UEFI</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" ga4id=""></google-codelab-analytics>
+  <google-codelab codelab-gaid="ID de Google Analytics"
+                  codelab-ga4id=""
+                  id="bastionado-bios-uefi"
+                  title="Bastionar la Seguridad de la BIOS/UEFI"
+                  environment="web"
+                  feedback-link="Un enlace en el que los usuarios puedan darte feedback (quizás creando un issue en un repositorio de git)">
+    
+      <google-codelab-step label="Introducción" duration="0">
+        <p>La BIOS (o su versión más moderna, UEFI) es el primer software que se ejecuta en un dispositivo cuando se enciende. Su función es gestionar y reconocer el hardware instalado y establecer el proceso de arranque del sistema operativo. Sin embargo, si no se protegen adecuadamente sus configuraciones, puede convertirse en un punto de vulnerabilidad, permitiendo que un usuario no autorizado manipule el arranque del sistema.</p>
+<p>Esta guía ofrece pasos prácticos para configurar la seguridad en la BIOS/UEFI, previniendo accesos no deseados y reforzando la integridad del sistema desde el momento en que se inicia.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Configuración de contraseñas" duration="0">
+        <p>Para proteger la BIOS/UEFI, es necesario configurar contraseñas de administración y arranque, evitando que cualquier usuario sin autorización acceda a las configuraciones críticas del sistema o inicie el dispositivo.</p>
+<ul>
+<li><strong>Contraseña de administrador:</strong> Configura una contraseña de administrador que proteja el acceso a la configuración de la BIOS/UEFI.</li>
+<li><strong>Contraseña de arranque:</strong> Configura una contraseña para el arranque, esto evitará el inicio del sistema sin autorización.</li>
+</ul>
+<p class="image-container"><img alt="Configurar contraseñas de administrador y arranque" src="img\\9d48154545cb31e0.png"></p>
+<p>Negative : Nota: Para servidores, esta opción puede ser menos práctica ya que requiere la contraseña en cada arranque o reinicio.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Orden de arranque" duration="0">
+        <p>Establecer un orden de arranque seguro asegura que el sistema intente arrancar únicamente desde unidad de almacenamiento configurada, impidiendo el acceso desde otros dispositivos.</p>
+<p>Configura como primera opcion la unidad de almacenamiento donde se ecuentra el sistema operativo y, para una mayor seguridad, desactiva el resto de unidades.</p>
+<p>Negative : <strong>Deshabilitar arranque desde USB</strong>: Evita que se pueda iniciar desde unidades USB externas. Esto bloquea el acceso por medios extraíbles que podrían cargar sistemas externos y vulnerar la seguridad.</p>
+<p class="image-container"><img alt="Menu de arranque" src="img\\ad07e92f098211bc.png"></p>
+<p class="image-container"><img alt="Configuracion del orden de arranque" src="img\\41c427e93b27582a.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Habilitar &#34;Secure Boot&#34;" duration="0">
+        <p>Activar el Secure Boot (solo disponible en BIOS/UEFI modernas), bloquea el arranque de software no firmado. Es especialmente útil en sistemas que ejecutan Windows o algunas distribuciones de Linux compatibles.</p>
+<p>Accede a la configuración de &#34;Secure Boot&#34; y actívala para limitar el arranque a sistemas verificados y firmados.</p>
+<p class="image-container"><img alt="Activar Secure Boot" src="img\\91d30a01df089277.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Mas opciones" duration="0">
+        <h2 is-upgraded>Smart USB protection</h2>
+<p>La proteccion inteligente de USB consiste en bloquear el copiado de datos desde el ordenador a un USB. Tiene varias opciones:</p>
+<ul>
+<li><strong>Read Only:</strong> El usuario puede copiar datos desde la unidad USB a la máquina, pero no desde la maquina al USB</li>
+<li><strong>No access:</strong> El usuario no puede hacer uso de unidades USB en windows.</li>
+</ul>
+<p class="image-container"><img alt="Activar smart USB protection" src="img\\fcb5adc1e12d32ab.png"></p>
+<h2 is-upgraded>Contraseña de discos duros</h2>
+<p>Para una mayor seguridad, se pueden configurar contraseñas para proteger los discos duros desde el menu &#34;Seguridad&#34;.</p>
+<p class="image-container"><img alt="Contraseñas discos duros" src="img\\5757c8c14ab942e9.png"></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
